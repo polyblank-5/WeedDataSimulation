@@ -1,0 +1,123 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0" version="24.8.4">
+  <diagram name="Page-1" id="11WG3WwTPUPjpIOillVq">
+    <mxGraphModel dx="2314" dy="1182" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="7R5sQKfC0pL-GstXF32L-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="7R5sQKfC0pL-GstXF32L-1" target="7R5sQKfC0pL-GstXF32L-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-1" value="PositionsDaten Yolo" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="7R5sQKfC0pL-GstXF32L-4" target="7R5sQKfC0pL-GstXF32L-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-4" value="Transformation Roboter KOS" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="7R5sQKfC0pL-GstXF32L-6" target="7R5sQKfC0pL-GstXF32L-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-6" value="Aufnahme neuer Unkraut Koordinaten" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-10" value="optischer Fluss" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="290" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7R5sQKfC0pL-GstXF32L-1" target="7R5sQKfC0pL-GstXF32L-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="630" as="sourcePoint" />
+            <mxPoint x="450" y="580" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="140" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-12" value="update Unkrautkoordinaten" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-14" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="7R5sQKfC0pL-GstXF32L-10" target="7R5sQKfC0pL-GstXF32L-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="380" as="sourcePoint" />
+            <mxPoint x="748" y="242" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="740" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-15" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="140" width="400" height="140" as="geometry">
+            <mxRectangle x="440" y="140" width="50" height="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-16" value="DataSimulation" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="590" y="110" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-17" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="800" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="7R5sQKfC0pL-GstXF32L-17" source="7R5sQKfC0pL-GstXF32L-19" target="7R5sQKfC0pL-GstXF32L-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-19" value="Unkrautkoordinaten Generierung" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="7R5sQKfC0pL-GstXF32L-17">
+          <mxGeometry x="40" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="7R5sQKfC0pL-GstXF32L-17" source="7R5sQKfC0pL-GstXF32L-20" target="7R5sQKfC0pL-GstXF32L-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-20" value="Aufnahme neuer Unkraut Koordinaten" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="7R5sQKfC0pL-GstXF32L-17">
+          <mxGeometry x="240" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-24" value="Konstant" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="7R5sQKfC0pL-GstXF32L-17">
+          <mxGeometry x="70" y="190" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-25" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="7R5sQKfC0pL-GstXF32L-17" source="7R5sQKfC0pL-GstXF32L-24" target="7R5sQKfC0pL-GstXF32L-19">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="160" as="sourcePoint" />
+            <mxPoint x="250" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-27" value="" style="endArrow=none;html=1;rounded=0;exitX=0.125;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="7R5sQKfC0pL-GstXF32L-17" source="7R5sQKfC0pL-GstXF32L-17" target="7R5sQKfC0pL-GstXF32L-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="200" as="sourcePoint" />
+            <mxPoint x="410" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="7R5sQKfC0pL-GstXF32L-17" source="7R5sQKfC0pL-GstXF32L-29" target="7R5sQKfC0pL-GstXF32L-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-29" value="update alter Koordinaten" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="7R5sQKfC0pL-GstXF32L-17">
+          <mxGeometry x="440" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-31" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="7R5sQKfC0pL-GstXF32L-17" source="7R5sQKfC0pL-GstXF32L-24" target="7R5sQKfC0pL-GstXF32L-29">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="200" as="sourcePoint" />
+            <mxPoint x="270" y="150" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="500" y="205" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-32" value="speichern der Daten" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="7R5sQKfC0pL-GstXF32L-17">
+          <mxGeometry x="640" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-28" value="Varianz" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="7R5sQKfC0pL-GstXF32L-17">
+          <mxGeometry x="270" y="190" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-18" value="DataSimulation" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="375" y="410" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-22" value="optischer Fluss" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="756.88" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7R5sQKfC0pL-GstXF32L-23" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.076;entryY=1.013;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="7R5sQKfC0pL-GstXF32L-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="170" y="656.88" as="sourcePoint" />
+            <mxPoint x="140.80000000000018" y="679.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
