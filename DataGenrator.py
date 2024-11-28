@@ -39,10 +39,10 @@ class Weed:
         self.angle = angle
         self.rgb = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))  # Unique color
 
-    def update_position_approx(self):
+    def update_position_approx(self,x,y):
         # Move weed according to speed and rotation
         self.x += self.speed
-        self.y =self.y*1/3 + (self.y + self.speed * (random.choice([-1, 1]) * self.angle / 90)) * 2/3
+        self.y =self.y*1/3 + (y + self.speed * (random.choice([-1, 1]) * self.angle / 90)) * 2/3
         # TODO the position so it takes into account the measurement of the new position capture while it is in frame
     def update_position(self):
         self.x += self.speed
@@ -63,11 +63,16 @@ def generate_new_weed():
 
 def update_weed_positions():
     """Update all weed positions."""
+    '''for weed in weed_list:
+        weed.update_position()
     for weed in weed_approx_list:
         weed.update_position_approx()
-    
-    for weed in weed_list:
+'''
+    for weed, weed_approx in zip(weed_list, weed_approx_list):
         weed.update_position()
+        weed_approx.update_position_approx(weed.x,weed.y)
+    
+    
 
 def draw_frame():
     """Draw the frame, weeds, and numbering."""
