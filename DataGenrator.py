@@ -42,8 +42,8 @@ class Weed:
     def update_position_approx(self):
         # Move weed according to speed and rotation
         self.x += self.speed
-        self.y += self.speed * (random.choice([-1, 1]) * self.angle / 90)
-    
+        self.y =self.y*1/3 + (self.y + self.speed * (random.choice([-1, 1]) * self.angle / 90)) * 2/3
+        # TODO the position so it takes into account the measurement of the new position capture while it is in frame
     def update_position(self):
         self.x += self.speed
         self.y += self.speed * self.angle / 90
@@ -159,7 +159,7 @@ def main():
 
     # On exit, log final state
     print("Simulation stopped. Final weed list:")
-    for weed in weed_list:
+    for weed in weed_approx_list:
         print(f"Weed ID: {weed.id}, Position: ({weed.x:.1f}, {weed.y:.1f}), Color: {weed.rgb}")
 
     pygame.quit()
