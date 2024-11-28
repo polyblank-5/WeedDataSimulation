@@ -1,5 +1,6 @@
 import pygame
 import random
+import math
 
 # Initialize Pygame
 pygame.init()
@@ -30,9 +31,9 @@ GRAY = (200, 200, 200)
 class Weed:
     id_counter = 1
 
-    def __init__(self, x, y, speed, angle):
+    def __init__(self, x, y, speed, angle, counter=1):
         self.id = Weed.id_counter
-        Weed.id_counter += 1
+        Weed.id_counter += counter
         self.x = x
         self.y = y
         self.speed = speed
@@ -42,11 +43,13 @@ class Weed:
     def update_position_approx(self,x,y):
         # Move weed according to speed and rotation
         self.x += self.speed
-        self.y =self.y*1/3 + (y + self.speed * (random.choice([-1, 1]) * self.angle / 90)) * 2/3
+        vertical_adjustment = self.speed * math.sin(math.radians(self.angle))
+        self.y =self.y*1/3 + (y +  (random.choice([-1, 1]) * vertical_adjustment)) * 2/3
         # TODO the position so it takes into account the measurement of the new position capture while it is in frame
     def update_position(self):
         self.x += self.speed
-        self.y += self.speed * self.angle / 90
+        vertical_adjustment = self.speed * math.sin(math.radians(self.angle))
+        self.y += vertical_adjustment
 
 # Simulation data
 weed_approx_list = []
@@ -55,7 +58,7 @@ weed_list = []
 def generate_new_weed():
     """Generate a new weed at x=0.0 and a random y-coordinate."""
     y = round(random.uniform(0, FRAME_HEIGHT), 1)
-    weed = Weed(0.0, y, SPEED, ROTATION_ANGLE)
+    weed = Weed(0.0, y, SPEED, ROTATION_ANGLE,counter=0)
     weed_approx = Weed(0.0, y, SPEED, ROTATION_ANGLE)
     weed_approx_list.append(weed_approx)
     weed_list.append(weed)
@@ -149,7 +152,7 @@ def main():
                 running = False
 
         # Update simulation
-        if random.choice([0, 1]) > 0.7:
+        if random.choice([0, 1]) > 0.8:
             generate_new_weed()
         update_weed_positions()
 
