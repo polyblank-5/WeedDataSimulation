@@ -24,7 +24,6 @@ font = pygame.font.Font(None, FONT_SIZE)
 # Colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
-GREEN = (0, 255, 0)
 GRAY = (200, 200, 200)
 
 # Weed data structure
@@ -38,23 +37,35 @@ class Weed:
         self.y = y
         self.speed = speed
         self.angle = angle
+        self.rgb = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))  # Unique color
 
-    def update_position(self):
+    def update_position_approx(self):
         # Move weed according to speed and rotation
         self.x += self.speed
         self.y += self.speed * (random.choice([-1, 1]) * self.angle / 90)
+    
+    def update_position(self):
+        self.x += self.speed
+        self.y += self.speed * self.angle / 90
 
 # Simulation data
+weed_approx_list = []
 weed_list = []
 
 def generate_new_weed():
     """Generate a new weed at x=0.0 and a random y-coordinate."""
     y = round(random.uniform(0, FRAME_HEIGHT), 1)
     weed = Weed(0.0, y, SPEED, ROTATION_ANGLE)
+    weed_approx = Weed(0.0, y, SPEED, ROTATION_ANGLE)
+    weed_approx_list.append(weed_approx)
     weed_list.append(weed)
+
 
 def update_weed_positions():
     """Update all weed positions."""
+    for weed in weed_approx_list:
+        weed.update_position_approx()
+    
     for weed in weed_list:
         weed.update_position()
 
@@ -75,17 +86,25 @@ def draw_frame():
         pygame.draw.line(screen, GRAY, (0, y), (SCREEN_WIDTH, y))
 
     # Draw weeds
+    for weed in weed_approx_list:
+        # Convert weed coordinates to pixels
+        pixel_x = int(weed.x / FRAME_DISCRETIZATION * CELL_WIDTH)
+        pixel_y = int(weed.y / FRAME_DISCRETIZATION * CELL_HEIGHT)
+
+        # Draw weed as a circle with its unique color
+        pygame.draw.circle(screen, weed.rgb, (pixel_x, pixel_y), 5)
+
+        # Draw weed ID
+        id_text = font.render(f"{weed.id}", True, BLACK)
+        screen.blit(id_text, (pixel_x + 10, pixel_y - 10))
+
     for weed in weed_list:
         # Convert weed coordinates to pixels
         pixel_x = int(weed.x / FRAME_DISCRETIZATION * CELL_WIDTH)
         pixel_y = int(weed.y / FRAME_DISCRETIZATION * CELL_HEIGHT)
 
-        # Draw weed as a circle
-        pygame.draw.circle(screen, GREEN, (pixel_x, pixel_y), 5)
-
-        # Draw weed ID
-        id_text = font.render(f"{weed.id}", True, BLACK)
-        screen.blit(id_text, (pixel_x + 10, pixel_y - 10))
+        # Draw weed as a circle with its unique color
+        pygame.draw.circle(screen, BLACK, (pixel_x, pixel_y), 5)
 
     # Draw y-axis numbering (right side)
     for i in range(int(FRAME_HEIGHT / FRAME_DISCRETIZATION)):
@@ -94,20 +113,25 @@ def draw_frame():
         screen.blit(text, (SCREEN_WIDTH + 10, i * CELL_HEIGHT - FONT_SIZE // 2))
 
     # Draw x-axis numbering (bottom)
-    # Integer part (e.g., 0000000000)
-    x_int_row = ''.join(str(int(i * FRAME_DISCRETIZATION // 1)) for i in range(int(FRAME_WIDTH / FRAME_DISCRETIZATION)))
-    int_text = font.render(x_int_row, True, BLACK)
-    screen.blit(int_text, (0, SCREEN_HEIGHT + 5))
-
-    # Fractional part row (e.g., 0123456789)
-    x_frac_row = ''.join(str(int(i * FRAME_DISCRETIZATION % 1 * 10)) for i in range(int(FRAME_WIDTH / FRAME_DISCRETIZATION)))
-    frac_text = font.render(x_frac_row, True, BLACK)
-    screen.blit(frac_text, (0, SCREEN_HEIGHT + 20))
+    # Integer part (e.g., 00000)
+    for i in range(int(FRAME_WIDTH / FRAME_DISCRETIZATION)):
+        x_pos = i * CELL_WIDTH
+        label = f"{int(i * FRAME_DISCRETIZATION // 1)}"
+        text = font.render(label, True, BLACK)
+        screen.blit(text, (x_pos + CELL_WIDTH // 4, SCREEN_HEIGHT + 5))
 
     # Dots row (e.g., . . . . .)
-    x_dots_row = '. ' * (int(FRAME_WIDTH / FRAME_DISCRETIZATION) // 2)
-    dots_text = font.render(x_dots_row, True, BLACK)
-    screen.blit(dots_text, (0, SCREEN_HEIGHT + 35))
+    for i in range(int(FRAME_WIDTH / FRAME_DISCRETIZATION)):
+        x_pos = i * CELL_WIDTH
+        dot_text = font.render(".", True, BLACK)
+        screen.blit(dot_text, (x_pos + CELL_WIDTH // 4, SCREEN_HEIGHT + 20))
+
+    # Fractional part row (e.g., 0123456789)
+    for i in range(int(FRAME_WIDTH / FRAME_DISCRETIZATION)):
+        x_pos = i * CELL_WIDTH
+        label = f"{int(i * FRAME_DISCRETIZATION % 1 * 10)}"
+        text = font.render(label, True, BLACK)
+        screen.blit(text, (x_pos + CELL_WIDTH // 4, SCREEN_HEIGHT + 35))
 
 def main():
     """Main simulation loop."""
@@ -120,7 +144,8 @@ def main():
                 running = False
 
         # Update simulation
-        generate_new_weed()
+        if random.choice([0, 1]) > 0.7:
+            generate_new_weed()
         update_weed_positions()
 
         # Draw everything
@@ -130,12 +155,12 @@ def main():
         pygame.display.flip()
 
         # Cap the frame rate
-        clock.tick(10)  # 10 FPS
+        clock.tick(5)  # 10 FPS
 
     # On exit, log final state
     print("Simulation stopped. Final weed list:")
     for weed in weed_list:
-        print(f"Weed ID: {weed.id}, Position: ({weed.x:.1f}, {weed.y:.1f})")
+        print(f"Weed ID: {weed.id}, Position: ({weed.x:.1f}, {weed.y:.1f}), Color: {weed.rgb}")
 
     pygame.quit()
 
